@@ -12,10 +12,12 @@
 
 <body>
     <h1>Tic Tac Toe</h1>
-    <div class="grid">
+    <div class="grid gradientDown">
         <div data-player-playing class="FullGridSpan BigPrettyWords"></div>
         <div data-player1 class="SmallPrettyWords">Player1:0</div>
-        <button data-surrender class="largeText">Surrender</button>
+        <div>
+            <button data-surrender class="largeText fillAvailable borderless clickable">Surrender</button>
+        </div>
         <div data-player2 class="SmallPrettyWords">Player2:0</div>
         <button data-number1></button>
         <button data-number2></button>
@@ -27,6 +29,7 @@
         <button data-number8></button>
         <button data-number9></button>
     </div>
+    <button data-music-toggle class="menuButton alignTopRight borderless clickable">Toggle Music</button>
 </body>
 
-</html>s
+</html>
