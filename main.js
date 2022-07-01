@@ -64,6 +64,7 @@ class Game {
             this.players[1].score++
             player2Display.innerHTML = "Player2:" + this.players[1].score
         }
+        console.log(this.players)
         if (this.players[0].store == "X") {
             this.players[0].store = "O"
             this.players[1].store = "X"
@@ -71,7 +72,7 @@ class Game {
             this.players[0].store = "X"
             this.players[1].store = "O"
         }
-
+        console.log(this.players)
     }
     resetSquares() {
         Object.keys(this.squares).forEach((square) => {
@@ -90,13 +91,15 @@ class Game {
     play(btnName, btnClicked) {
         if (this.squares[btnName] == "") {
             if (this.playerPlaying == "player1") {
-                btnClicked.innerHTML = "X"
+                btnClicked.innerHTML = this.players[0].store
+                btnClicked.style.color = this.players[0].color
                 this.squares[btnName] = "player1"
                 this.checkIfWon()
                 playerPlayingDisplay.innerHTML = "player2"
                 this.playerPlaying = "player2"
             } else {
-                btnClicked.innerHTML = "O"
+                btnClicked.innerHTML = this.players[1].store
+                btnClicked.style.color = this.players[1].color
                 this.squares[btnName] = "player2"
                 this.checkIfWon()
                 playerPlayingDisplay.innerHTML = "player1"
@@ -107,7 +110,10 @@ class Game {
     }
     surrender() {
         if (this.playerPlaying == "player1") {
-            this.playerPlaying = "player2"
+            this.resetSquares
+            this.addToScore()
+        } else {
+            this.resetSquares
             this.addToScore()
         }
     }
@@ -156,4 +162,7 @@ spot8.addEventListener('click', () => {
 })
 spot9.addEventListener('click', () => {
     game.play("square9", spot9)
+})
+surrenderBtn.addEventListener('click', () => {
+    game.surrender()
 })

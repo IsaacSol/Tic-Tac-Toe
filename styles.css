@@ -8,7 +8,7 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: rgba(30, 30, 30);
+    background: linear-gradient(to right, blue, rgba(30, 30, 30, 1), red);
 }
 
 h1 {
@@ -62,4 +62,30 @@ h1 {
     text-align: center;
     color: white;
     font-family: 'Courier New', Courier, monospace;
+}
+
+.fillAvalible {
+    width: 100%;
+    width: -webkit-fill-available;
+    height: 100%;
+    height: -webkit-fill-available;
+
+}
+
+.borderless {
+    border: none;
+}
+
+.clickable {
+    background-color: rgba(150, 150, 150, .5);
+}
+
+.clickable:hover {
+    background-color: darkgray;
+    cursor: pointer;
+}
+
+.gradientDown {
+    background: linear-gradient(to bottom, black, transparent);
+}
 }
