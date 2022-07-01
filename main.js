@@ -28,13 +28,16 @@ class Game {
         playerPlayingDisplay.innerHTML = "player1"
         this.players[0].store = "X"
         this.players[1].store = "O"
+        this.musicPlayer = new Audio("./Sounds/cyberpunk-computer-game-music-no-copyright-music-fast-evil.mp3")
+        this.musicPlayer.volume = 0.1
+        this.musicAudible = false;
     }
     checkIfWon() {
         if (
             (this.squares.square1 == "player1" && this.squares.square5 == "player1" && this.squares.square9 == "player1") ||
             (this.squares.square7 == "player1" && this.squares.square5 == "player1" && this.squares.square3 == "player1") ||
             (this.squares.square1 == "player1" && this.squares.square2 == "player1" && this.squares.square3 == "player1") ||
-            (this.squares.square3 == "player1" && this.squares.square5 == "player1" && this.squares.square6 == "player1") ||
+            (this.squares.square4 == "player1" && this.squares.square5 == "player1" && this.squares.square6 == "player1") ||
             (this.squares.square7 == "player1" && this.squares.square8 == "player1" && this.squares.square9 == "player1") ||
             (this.squares.square1 == "player1" && this.squares.square4 == "player1" && this.squares.square7 == "player1") ||
             (this.squares.square2 == "player1" && this.squares.square5 == "player1" && this.squares.square8 == "player1") ||
@@ -45,13 +48,24 @@ class Game {
             (this.squares.square1 == "player2" && this.squares.square5 == "player2" && this.squares.square9 == "player2") ||
             (this.squares.square7 == "player2" && this.squares.square5 == "player2" && this.squares.square3 == "player2") ||
             (this.squares.square1 == "player2" && this.squares.square2 == "player2" && this.squares.square3 == "player2") ||
-            (this.squares.square3 == "player2" && this.squares.square5 == "player2" && this.squares.square6 == "player2") ||
+            (this.squares.square4 == "player2" && this.squares.square5 == "player2" && this.squares.square6 == "player2") ||
             (this.squares.square7 == "player2" && this.squares.square8 == "player2" && this.squares.square9 == "player2") ||
             (this.squares.square1 == "player2" && this.squares.square4 == "player2" && this.squares.square7 == "player2") ||
             (this.squares.square2 == "player2" && this.squares.square5 == "player2" && this.squares.square8 == "player2") ||
             (this.squares.square3 == "player2" && this.squares.square6 == "player2" && this.squares.square9 == "player2")
         ) {
             this.addToScore()
+        } else {
+            let played = 0;
+            for (let i = 1; i < 10; i++) {
+                if(this.squares["square"+i] == "") {
+                } else {
+                    played++
+                }
+            }
+            if(played == 9) {
+                this.resetSquares()
+            }
         }
     }
     addToScore() {
@@ -66,6 +80,7 @@ class Game {
         }
         console.log(this.players)
         if (this.players[0].store == "X") {
+            console.log("WHAT")
             this.players[0].store = "O"
             this.players[1].store = "X"
         } else {
@@ -116,6 +131,14 @@ class Game {
             this.resetSquares()
             this.addToScore()
         }
+    }
+    toggleSound() {
+        if(this.musicAudible) {
+            this.musicPlayer.pause()
+        } else {
+            this.musicPlayer.play()
+        }
+        this.musicAudible = !this.musicAudible;
     }
 }
 //variable

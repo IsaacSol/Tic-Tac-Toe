@@ -39,11 +39,11 @@ h1 {
     font-size: xx-large;
     border: 2px double gray;
     outline: none;
-    background-color: rgba(150, 150, 150, .5);
+    background-color: rgba(150, 150, 150, .2);
 }
 
 .grid>button:hover {
-    background-color: darkgray;
+    /* background-color: darkgray; */
 }
 
 .largeText {
@@ -77,11 +77,11 @@ h1 {
 }
 
 .clickable {
-    background-color: rgba(150, 150, 150, .5);
+    background-color: rgba(150, 150, 150, .2);
 }
 
 .clickable:hover {
-    background-color: darkgrey;
+    background-color: rgba(150, 150, 150, .3);
     cursor: pointer;
 }
 
@@ -91,10 +91,37 @@ h1 {
 
 .alignTopRight {
     position: absolute;
-    top: 5px;
+    top: 20px;
     right: 5px;
 }
 
 .menuButton {
     height: 36px;
+}
+
+.centerText {
+    align-self: center;
+}
+
+.displayGrid {
+    display: grid;
+}
+
+.backgroundBlue {
+    background-color: rgba(0,0,255,0.1);
+}
+
+.backgroundRed {
+    background-color: rgba(255,0,0,0.1);
+}
+
+.animatedButton:hover {
+    /* background: linear-gradient(45deg, red, darkgrey, blue, darkgrey); */
+    animation: buttonAnimation 3s ease infinite;
+}
+
+@keyframes buttonAnimation {
+    0% {transform: rotate(0deg)}
+    50% {transform: rotate(80deg) scale(1.4,1.4)}
+    100% {transform: rotate(360deg)}
 }

@@ -13,21 +13,23 @@
 <body>
     <h1>Tic Tac Toe</h1>
     <div class="grid gradientDown">
-        <div data-player-playing class="FullGridSpan BigPrettyWords"></div>
-        <div data-player1 class="SmallPrettyWords">Player1:0</div>
+        <div class="FullGridSpan BigPrettyWords displayGrid">
+            <div data-player-playing class="centerText"></div>
+        </div>
+        <div data-player1 class="SmallPrettyWords backgroundBlue">Player1:0</div>
         <div>
             <button data-surrender class="largeText fillAvailable borderless clickable">Surrender</button>
         </div>
-        <div data-player2 class="SmallPrettyWords">Player2:0</div>
-        <button data-number1></button>
-        <button data-number2></button>
-        <button data-number3></button>
-        <button data-number4></button>
-        <button data-number5></button>
-        <button data-number6></button>
-        <button data-number7></button>
-        <button data-number8></button>
-        <button data-number9></button>
+        <div data-player2 class="SmallPrettyWords backgroundRed">Player2:0</div>
+        <button data-number1 class="animatedButton"></button>
+        <button data-number2 class="animatedButton"></button>
+        <button data-number3 class="animatedButton"></button>
+        <button data-number4 class="animatedButton"></button>
+        <button data-number5 class="animatedButton"></button>
+        <button data-number6 class="animatedButton"></button>
+        <button data-number7 class="animatedButton"></button>
+        <button data-number8 class="animatedButton"></button>
+        <button data-number9 class="animatedButton"></button>
     </div>
     <button data-music-toggle class="menuButton alignTopRight borderless clickable">Toggle Music</button>
 </body>
